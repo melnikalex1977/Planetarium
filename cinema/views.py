@@ -10,7 +10,13 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
-from cinema.models import AstronomyShow, ShowTheme, Ticket, PlanetariumDome, ShowSession, Reservation
+from cinema.models import (AstronomyShow,
+                           ShowTheme,
+                           Ticket,
+                           PlanetariumDome,
+                           ShowSession,
+                           Reservation
+                           )
 from cinema.permissions import IsAdminOrIfAuthenticatedReadOnly
 
 from cinema.serializers import (
@@ -82,6 +88,7 @@ class TicketViewSet(viewsets.ModelViewSet):
     def list(self, request, *args, **kwargs):
         """Get list planetarium"""
         return super().list(request, *args, **kwargs)
+
 
 class ReservationViewSet(viewsets.ModelViewSet):
     queryset = Reservation.objects.all()

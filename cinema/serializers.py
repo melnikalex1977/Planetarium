@@ -10,6 +10,7 @@ from cinema.models import (
     Ticket,
 )
 
+
 class ShowThemeSerializer(serializers.ModelSerializer):
     class Meta:
         model = ShowTheme
@@ -59,6 +60,7 @@ class TicketSeatsSerializer(TicketSerializer):
     class Meta:
         model = Ticket
         fields = ("row", "seat")
+
 
 class ReservationSerializer(serializers.ModelSerializer):
     class Meta:

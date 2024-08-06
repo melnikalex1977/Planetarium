@@ -19,12 +19,15 @@ def product_image_file_path(instance: "AstronomyShow", filename: str) -> str:
     )
     return os.path.join(settings.MEDIA_ROOT, filename)
 
+
 class AstronomyShow(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
-    show_theme = models.ManyToManyField(ShowTheme, related_name="astronomy_shows")
+    show_theme = models.ManyToManyField(
+        ShowTheme,
+        related_name="astronomy_shows"
+    )
     image = models.ImageField(null=True, upload_to="product_image_file_path")
-
 
     class Meta:
         ordering = ["title"]
@@ -38,10 +41,15 @@ class PlanetariumDome(models.Model):
     rows = models.IntegerField(default=0)
     seats_in_row = models.IntegerField(default=0)
 
+
 class ShowSession(models.Model):
     show_time = models.DateTimeField()
     astronomy_show = models.ForeignKey(AstronomyShow, on_delete=models.CASCADE)
-    planetarium_dome = models.ForeignKey(PlanetariumDome, on_delete=models.CASCADE, default=1)
+    planetarium_dome = models.ForeignKey(
+        PlanetariumDome,
+        on_delete=models.CASCADE,
+        default=1
+    )
 
     class Meta:
         ordering = ["-show_time"]
