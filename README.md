@@ -12,19 +12,20 @@ install PostgresSQL and create db
 ## Pages images:
 ![img2.png](img2.png)
 
-інструкція для локального розгортання Django проєкту
-1 Підготовка середовища
-1.1 Встановити Python та Django
-1.2 Налаштувати віртуальне середовище
+Instructions for Local Deployment of a Django Project
+1. Prepare the Environment
+1.1 Install Python and Django
+1.2 Set Up a Virtual Environment
 python -m venv venv
 venv\Scripts\activate
-1.3 Встановити усі необхідні пакети, що зазначені у файлі requirements.txt
-2  Налаштувати Django проєкт - Переконатись, що файл settings.py правильно налаштований для локального розгортання
-3 Запустити міграції
+1.3 Install All Required Packages Listed in the requirements.txt File
+2. Configure the Django Project
+Ensure the settings.py file is correctly configured for local deployment.
+3. Run Migrations
 python manage.py migrate
-4 Створіти суперкористувача
+4. Create a Superuser
 python manage.py createsuperuser
-5 Запустити сервер розробки
+5. Run the Development Server
 python manage.py runserver
-6 Перевірити проєкт
-http://127.0.0.1:8000/
+6. Check the Project
+Visit http://127.0.0.1:8000/ to verify the project is running correctly.
